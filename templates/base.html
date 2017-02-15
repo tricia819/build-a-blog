@@ -1,0 +1,53 @@
+<DOCTYPE html>
+
+<html>
+  <head>
+
+    <title>Best Blog Ever!</title>
+  </head>
+  <style type="text/css">
+    body {
+      background: #a5f9ff;
+      color: #8a66a8;
+      font-family: Monotype Corsiva;
+      font-size: 36px;
+      width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .error {
+      color: red;
+    }
+
+    label {
+      display: block;
+      font-size: 24px;
+    }
+
+    input[type=text] {
+      font-size: 24px;
+    }
+    hr {
+      margin: 20px auto;
+    }
+
+    .entry + .entry {
+      margin: 0;
+    }
+
+    .entry-body{
+      margin: 0;
+      color: #8a66a8;
+      font-family: Monotype Corsiva;
+      font-size: 24px;
+    }
+  </style>
+  <body>
+	<h1>Tricia's Best Blog Ever!</h1>
+
+    {% block content %}
+    {% endblock %}
+
+  </body>
+  </html>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for e in entrys %}
+  {{e.title | safe }}
+  <br>
+  {{e.entry | safe }}
+  <br><br>
+{% endfor %}
+
+{% endblock %}
