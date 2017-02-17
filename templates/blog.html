@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for e in entrys %}
-  {{e.title | safe }}
+  <a href="/blog/{{ e.key().id() }}"> {{e.title | safe }}</a>
   <br>
   {{e.entry | safe }}
   <br><br>

@@ -16,6 +16,11 @@
       padding: 10px;
     }
 
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+    }
+
     .error {
       color: red;
     }
@@ -32,6 +37,10 @@
       margin: 20px auto;
     }
 
+    #linkbar {
+      text-align: center;
+      }
+
     .entry + .entry {
       margin: 0;
     }
@@ -45,6 +54,10 @@
   </style>
   <body>
 	<h1>Tricia's Best Blog Ever!</h1>
+
+  <div id="linkbar">
+  <h4><a href="/blog"> See the Blog </a>~*~*~<a href="/newpost"> Create a New Blog Post </a></h4>
+  </div>
 
     {% block content %}
     {% endblock %}

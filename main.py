@@ -65,7 +65,6 @@ class NewPost(Handler):
     self.render_new_post()
 
   def post (self):
-
     title = self.request.get("title")
     entry = self.request.get("entry")
 
@@ -74,14 +73,27 @@ class NewPost(Handler):
       #creates new instance of entry
       e.put()
       #stores new entry object in database
-      self.redirect("/blog" )
-      
+      self.redirect("/blog/%s" % str (e.key().id()))
+
     else:
       error = "You must enter BOTH a title AND a blog post. Please try again."
       self.render_new_post(title, entry, error)
+
+
+class ViewPost(Handler):
+
+    def get(self, id):
+        post = Entry.get_by_id( int(id) )
+
+        if post:
+            self.render("view-individual-post.html", title = post.title, entry = post.entry)
+        else:
+            error= "Sorry, the post you requested does not exist. Please try again."
+            self.render("view-individual-post.html", error = error)
 
 app = webapp2.WSGIApplication([
 ('/', Blog),
 ('/blog', Blog),
 ('/newpost', NewPost),
+webapp2.Route('/blog/<id:\d+>', ViewPost),
 ], debug =True)
